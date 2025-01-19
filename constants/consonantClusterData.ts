@@ -1,0 +1,81 @@
+const consonantClusterData = [
+  {
+    id: 1,
+    label: "gh",
+    file: require("../assets/audio/consonant-clusters/gh.mp3"),
+    desc: '"Go", "ghen"',
+    underline: [1, 2],
+  },
+  {
+    id: 2,
+    label: "gi",
+    file: require("../assets/audio/consonant-clusters/gi.mp3"),
+    desc: '"You", "giun"',
+    underline: [1, 2],
+  },
+  {
+    id: 3,
+    label: "kh",
+    file: require("../assets/audio/consonant-clusters/kh.mp3"),
+    desc: '"Khan", "khi"',
+    underline: [1, 3],
+  },
+  {
+    id: 4,
+    label: "ch",
+    file: require("../assets/audio/consonant-clusters/ch.mp3"),
+    desc: '"Cha-cha", "cho"',
+    underline: [1, 3],
+  },
+  {
+    id: 5,
+    label: "ng",
+    file: require("../assets/audio/consonant-clusters/ng.mp3"),
+    desc: '"Singer", "ngon"',
+    underline: [3, 5],
+  },
+  {
+    id: 6,
+    label: "ngh",
+    file: require("../assets/audio/consonant-clusters/ngh.mp3"),
+    desc: '"Singer", same as "ng"',
+    underline: [1, 2],
+  },
+  {
+    id: 7,
+    label: "qu",
+    file: require("../assets/audio/consonant-clusters/qu.mp3"),
+    desc: '"Why", "qua"',
+    underline: [1, 3],
+  },
+  {
+    id: 8,
+    label: "th",
+    file: require("../assets/audio/consonant-clusters/th.mp3"),
+    desc: '"Thailand", "thư", aspirated',
+    underline: [1, 3],
+  },
+  {
+    id: 9,
+    label: "nh",
+    file: require("../assets/audio/consonant-clusters/nh.mp3"),
+    desc: '"Canyon", "nho"',
+    underline: [3, 5],
+  },
+  {
+    id: 10,
+    label: "tr",
+    file: require("../assets/audio/consonant-clusters/tr.mp3"),
+    desc: '"Train", "trên"',
+    underline: [1, 3],
+  },
+  {
+    id: 11,
+    label: "ph",
+    file: require("../assets/audio/consonant-clusters/ph.mp3"),
+    desc: '"Phone", "pha"',
+    underline: [1, 3],
+  },
+];
+
+export default consonantClusterData;
