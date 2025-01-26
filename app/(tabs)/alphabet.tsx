@@ -1,69 +1,37 @@
-import { FlatList, View, Text, TouchableOpacity, Linking } from "react-native";
 import React from "react";
-import { Audio } from "expo-av";
-import { commonStyles } from "../../styles/styles";
-import audioData from "../../constants/alphabetAudioData";
+import {
+  View,
+  ImageBackground,
+  FlatList,
+  SafeAreaView,
+  Text,
+  Linking,
+  TouchableOpacity,
+} from "react-native";
+import { StatusBar } from "expo-status-bar";
+import images from "../../constants/images";
+import PlaySoundButton from "@/components/PlaySoundButton";
+import audioData from "@/constants/alphabetAudioData";
+
+const letterStyling: string = "text-white font-bold text-3xl";
+const boxStylingBase: string = "w-20 h-20 bg-primary";
+const descStyling: string = "flex-1 px-4 text-white text-2xl";
 
 const alphabet = () => {
-  const playSound = async (file: any) => {
-    const { sound } = await Audio.Sound.createAsync(file);
-    await sound.playAsync();
-    sound.setOnPlaybackStatusUpdate((status) => {
-      if (status.isLoaded && status.didJustFinish) {
-        sound.unloadAsync();
-      }
-    });
-  };
-
-  const renderHeader = () => (
-    <View
-      style={{
-        flexDirection: "row",
-        marginBottom: 10,
-        paddingRight: 20,
-        paddingLeft: 10,
-      }}
-    >
-      <Text>Source: </Text>
-      <TouchableOpacity onPress={handlePressSourceLink}>
-        <Text style={commonStyles.linkText}>
-          https://langi.app/blog/vietnamese-alphabet-tones#vietnamese-single-consonants
-        </Text>
-        <Text>
-          Single consonant playback are words since would be hard to
-          pronounciate otherwise
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
-
-  const renderItem = ({ item }: { item: (typeof audioData)[0] }) => {
-    const desc = item.desc || "";
-    const underline = item.underline || [];
-
-    const start = underline.length > 0 ? underline[0] : 0;
-    const end = underline.length > 0 ? underline[1] : 0;
-
-    const beforeUnderline = desc.slice(0, start);
-    const underlinedText = desc.slice(start, end);
-    const afterUnderline = desc.slice(end);
+  const renderDescriptionWithUnderline = (
+    desc: string,
+    underline: number[]
+  ) => {
+    const beforeUnderline = desc.substring(0, underline[0] - 1);
+    const underlinedText = desc.substring(underline[0] - 1, underline[1]);
+    const afterUnderline = desc.substring(underline[1]);
 
     return (
-      <View style={commonStyles.itemContainer}>
-        <TouchableOpacity
-          style={commonStyles.button}
-          onPress={() => playSound(item.file)}
-        >
-          <Text style={commonStyles.buttonText}>{item.label}</Text>
-        </TouchableOpacity>
-        <Text style={commonStyles.text}>
-          {beforeUnderline}
-          {underline.length > 0 && (
-            <Text style={commonStyles.underlined}>{underlinedText}</Text>
-          )}
-          {afterUnderline}
-        </Text>
-      </View>
+      <Text className={descStyling}>
+        {beforeUnderline}
+        <Text className="underline">{underlinedText}</Text>
+        {afterUnderline}
+      </Text>
     );
   };
 
@@ -74,16 +42,44 @@ const alphabet = () => {
   };
 
   return (
-    <View style={commonStyles.container}>
-      <FlatList
-        style={commonStyles.flatList}
-        data={audioData}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={commonStyles.listContainer}
-        ListHeaderComponent={renderHeader}
-      />
-    </View>
+    <SafeAreaView className="bg-background h-full">
+      <StatusBar style="auto" />
+      <ImageBackground
+        className="w-full h-full justify-center items-center"
+        source={images.stackscreen}
+      >
+        <FlatList
+          className="w-full h-full px-4"
+          data={audioData}
+          keyExtractor={(item) => item.label}
+          ListHeaderComponent={
+            <View>
+              <TouchableOpacity onPress={handlePressSourceLink}>
+                <Text className="text-primary text-xl underline mt-4">
+                  Pronounciation Source
+                </Text>
+                <Text className="text-white text-xl"></Text>
+              </TouchableOpacity>
+            </View>
+          }
+          renderItem={({ item, index }) => (
+            <View className="flex-row items-center">
+              <PlaySoundButton
+                audioName={item.label}
+                title={item.label}
+                handlePress={() => {}}
+                containerStyles={`${boxStylingBase} ${
+                  index === audioData.length - 1 ? "mb-4" : ""
+                }`}
+                textStyles={letterStyling}
+              />
+              {renderDescriptionWithUnderline(item.desc, item.underline)}
+            </View>
+          )}
+          ItemSeparatorComponent={() => <View className="h-4" />}
+        />
+      </ImageBackground>
+    </SafeAreaView>
   );
 };
 
