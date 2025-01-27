@@ -1,36 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  TouchableOpacity,
-  FlatList,
-  ImageBackground,
-} from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import * as Speech from "expo-speech";
 import images from "../../constants/images";
 import TextInputButton from "@/components/textinput-button";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import alphabet from "./alphabet";
 
 const LearnPronounciate = () => {
   const [text, setText] = useState("");
-  const [voices, setVoices] = useState<Speech.Voice[]>();
 
-  useEffect(() => {
-    const fetchVoices = async () => {
-      try {
-        const voicesList = await Speech.getAvailableVoicesAsync();
-        setVoices(voicesList);
-      } catch (error) {
-        console.error("Error fetching voices", error);
-      }
-    };
-
-    fetchVoices();
-  }, []); // Empty dependency array ensures this runs only once
-
-  const handleTextChange = (newText: string) => {
-    setText(newText);
-  };
+  const words = text.toLowerCase().split(" ");
 
   const speakVietnamese = () => {
     const tts = text;
@@ -61,8 +41,17 @@ const LearnPronounciate = () => {
           <Text className="text-white font-bold text-xl">Speak</Text>
         </TouchableOpacity>
         <Text className="text-white font-bold text-xl">
-          --------------------------------------------------------
+          --------------------------------------------------------{"\n"}
         </Text>
+        {words.map((word, index) => {
+          const letters = word.split("");
+
+          return (
+            <Text key={index} className="text-white font-bold text-xl">
+              {word}: {letters.join(" ")}
+            </Text>
+          );
+        })}
       </ImageBackground>
     </SafeAreaView>
   );
