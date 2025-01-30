@@ -1,9 +1,14 @@
 import { TouchableOpacity, Text } from "react-native";
 import React from "react";
 import { Audio } from "expo-av";
-import audioMap from "../constants/letters-audio-map";
+import {
+  alphabetData,
+  consonantClustersData,
+  unifiedData,
+} from "../constants/audioMap";
 
 type PlaySoundButtonProps = {
+  dataName: string;
   title: string;
   handlePress: () => void;
   isLoading?: boolean;
@@ -13,6 +18,7 @@ type PlaySoundButtonProps = {
 };
 
 const PlaySoundButton: React.FC<PlaySoundButtonProps> = ({
+  dataName,
   title,
   handlePress,
   isLoading = false,
@@ -20,6 +26,13 @@ const PlaySoundButton: React.FC<PlaySoundButtonProps> = ({
   textStyles = "",
   audioName,
 }) => {
+  const audioMap =
+    dataName === "alphabetData"
+      ? alphabetData
+      : dataName === "unifiedData"
+        ? unifiedData
+        : consonantClustersData;
+
   const handlePressWithAudio = async () => {
     try {
       handlePress();

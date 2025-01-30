@@ -1,6 +1,6 @@
-const audioData = [
+const alphabetData = [
   {
-    id: 2,
+    id: 1,
     label: "a",
     file: require("../assets/audio/single-letters/a.mp3"),
     desc: "[ahh]",
@@ -204,6 +204,4 @@ const audioData = [
   },
 ];
 
-const examples = [];
-
-export default audioData;
+export default alphabetData;

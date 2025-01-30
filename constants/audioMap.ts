@@ -1,4 +1,4 @@
-const audioMap: { [key: string]: any } = {
+const alphabetData: { [key: string]: any } = {
   a: require("../assets/audio/single-letters/a.mp3"),
   ă: require("../assets/audio/single-letters/ă.mp3"),
   â: require("../assets/audio/single-letters/â.mp3"),
@@ -30,4 +30,20 @@ const audioMap: { [key: string]: any } = {
   y: require("../assets/audio/single-letters/y.mp3"),
 };
 
-export default audioMap;
+const consonantClustersData: { [key: string]: any } = {
+  ch: require("../assets/audio/consonant-clusters/ch.mp3"),
+  gh: require("../assets/audio/consonant-clusters/gh.mp3"),
+  gi: require("../assets/audio/consonant-clusters/gi.mp3"),
+  kh: require("../assets/audio/consonant-clusters/kh.mp3"),
+  nh: require("../assets/audio/consonant-clusters/nh.mp3"),
+  ng: require("../assets/audio/consonant-clusters/ng.mp3"),
+  ngh: require("../assets/audio/consonant-clusters/ngh.mp3"),
+  ph: require("../assets/audio/consonant-clusters/ph.mp3"),
+  qu: require("../assets/audio/consonant-clusters/qu.mp3"),
+  th: require("../assets/audio/consonant-clusters/th.mp3"),
+  tr: require("../assets/audio/consonant-clusters/tr.mp3"),
+};
+
+const unifiedData = { ...alphabetData, ...consonantClustersData };
+
+export { alphabetData, consonantClustersData, unifiedData };

@@ -16,7 +16,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="consonant-clusters"
+        name="consonantClusters"
         options={{
           headerShown: false,
           title: "Clusters",
@@ -29,7 +29,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="tonal-marks"
+        name="tonalMarks"
         options={{
           headerShown: false,
           title: "Tonal",
@@ -51,7 +51,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="learn-pronounciate"
+        name="learnPronounciate"
         options={{
           headerShown: false,
           title: "Pronounciate",

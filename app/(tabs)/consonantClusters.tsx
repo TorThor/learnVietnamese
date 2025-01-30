@@ -11,13 +11,13 @@ import {
 import { StatusBar } from "expo-status-bar";
 import images from "../../constants/images";
 import PlaySoundButton from "@/components/PlaySoundButton";
-import alphabetData from "@/constants/alphabetData";
+import consonantClustersData from "@/constants/consonantClustersData";
 
 const letterStyling: string = "text-white font-bold text-3xl";
 const boxStylingBase: string = "w-20 h-20 bg-primary";
 const descStyling: string = "flex-1 px-4 text-white text-2xl";
 
-const alphabet = () => {
+const consonantClusters = () => {
   const renderDescriptionWithUnderline = (
     desc: string,
     underline: number[]
@@ -37,7 +37,7 @@ const alphabet = () => {
 
   const handlePressSourceLink = () => {
     Linking.openURL(
-      "https://langi.app/blog/vietnamese-alphabet-tones#vietnamese-single-consonants"
+      "https://openbooks.lib.msu.edu/vietnamese/chapter/section-8-combined-consonants-1/"
     );
   };
 
@@ -50,7 +50,7 @@ const alphabet = () => {
       >
         <FlatList
           className="w-full h-full px-4"
-          data={alphabetData}
+          data={consonantClustersData}
           keyExtractor={(item) => item.label}
           ListHeaderComponent={
             <View>
@@ -65,12 +65,12 @@ const alphabet = () => {
           renderItem={({ item, index }) => (
             <View className="flex-row items-center">
               <PlaySoundButton
-                dataName="alphabetData"
+                dataName="consonantClustersData"
                 audioName={item.label}
                 title={item.label}
                 handlePress={() => {}}
                 containerStyles={`${boxStylingBase} ${
-                  index === alphabetData.length - 1 ? "mb-4" : ""
+                  index === consonantClustersData.length - 1 ? "mb-4" : ""
                 }`}
                 textStyles={letterStyling}
               />
@@ -84,4 +84,4 @@ const alphabet = () => {
   );
 };
 
-export default alphabet;
+export default consonantClusters;

@@ -4,9 +4,15 @@ import { commonStyles } from "../../styles/styles";
 
 const Typing = () => {
   const diatrics = [
-    ["acute accent(“´”)", "grave(“`”)", "hook(” ̉ “)", "tilde(“~”)", "dot(“.”)"],
+    [
+      "acute accent(“ ´ ”)",
+      "grave(“ ` ”)",
+      "hook(” ̉  “)",
+      "tilde(“ ~ ”)",
+      "dot(“ . ”)",
+    ],
     ["s", "f", "r", "x", "j"],
-    ["á = as", "à = af", "ả = ar", "ã = ax", "â = aj"],
+    ["á = as", "à = af", "ả = ar", "ã = ax", "ạ = aj"],
   ];
 
   return (
