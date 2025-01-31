@@ -5,11 +5,11 @@ import {
   TouchableOpacity,
   ImageBackground,
   FlatList,
+  SafeAreaView,
 } from "react-native";
 import * as Speech from "expo-speech";
 import images from "../../constants/images";
 import TextInputButton from "@/components/textinput-button";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import PlaySoundButton from "@/components/PlaySoundButton";
 

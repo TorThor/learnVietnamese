@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   ImageBackground,
@@ -7,6 +7,7 @@ import {
   Text,
   Linking,
   TouchableOpacity,
+  Switch,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import images from "../../constants/images";
@@ -41,6 +42,9 @@ const alphabet = () => {
     );
   };
 
+  const [isEnabled, setIsEnabled] = useState(true);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
   return (
     <SafeAreaView className="bg-background h-full">
       <StatusBar style="auto" />
@@ -54,6 +58,17 @@ const alphabet = () => {
           keyExtractor={(item) => item.label}
           ListHeaderComponent={
             <View>
+              <View className="flex-row items-center">
+                <Text className=" text-white text-2xl">
+                  Toggle descriptions
+                </Text>
+                <Switch
+                  trackColor={{ false: "#767577", true: "#84CC15" }}
+                  thumbColor={isEnabled ? "#FFFFFF" : "#f4f3f4"}
+                  onValueChange={toggleSwitch}
+                  value={isEnabled}
+                />
+              </View>
               <TouchableOpacity onPress={handlePressSourceLink}>
                 <Text className="text-primary text-xl underline mt-4">
                   Pronounciation Source
@@ -74,7 +89,9 @@ const alphabet = () => {
                 }`}
                 textStyles={letterStyling}
               />
-              {renderDescriptionWithUnderline(item.desc, item.underline)}
+              {isEnabled
+                ? renderDescriptionWithUnderline(item.desc, item.underline)
+                : null}
             </View>
           )}
           ItemSeparatorComponent={() => <View className="h-4" />}
