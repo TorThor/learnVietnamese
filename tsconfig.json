@@ -1,6 +1,8 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "target": "ES2021",
+    "lib": ["ES2021", "DOM"],
     "strict": true,
     "paths": {
       "@/*": ["./*"],
@@ -8,8 +10,7 @@
     },
     "outDir": "./dist",
     "removeComments": true,
-    "noEmitOnError": true,
-    "sourceMap": true
+    "noEmitOnError": true
   },
   "include": [
     "**/*.ts",
