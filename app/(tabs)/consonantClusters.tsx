@@ -57,15 +57,15 @@ const consonantClusters = () => {
           ListHeaderComponent={
             <View>
               <View className="flex-row items-center">
-                <Text className=" text-white text-2xl">
-                  Toggle descriptions
-                </Text>
                 <Switch
                   trackColor={{ false: "#767577", true: "#84CC15" }}
                   thumbColor={isEnabled ? "#FFFFFF" : "#f4f3f4"}
                   onValueChange={toggleSwitch}
                   value={isEnabled}
                 />
+                <Text className=" text-white text-2xl ml-4">
+                  Toggle descriptions
+                </Text>
               </View>
               <TouchableOpacity onPress={handlePressSourceLink}>
                 <Text className="text-primary text-xl underline mt-4">
