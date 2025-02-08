@@ -66,11 +66,4 @@ let obtainLetters = (sections: string): string[] => {
   return realArr;
 };
 
-export {
-  triphthongsRegex,
-  diphthongsRegex,
-  consonantClustersRegex,
-  vowelsRegex,
-  consonantsRegex,
-  obtainLetters,
-};
+export default obtainLetters;

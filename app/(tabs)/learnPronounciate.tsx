@@ -11,7 +11,7 @@ import images from "../../constants/images";
 import TextInputButton from "@/components/textinput-button";
 import { StatusBar } from "expo-status-bar";
 import PlaySoundButton from "@/components/PlaySoundButton";
-import { obtainLetters } from "../../utils/wordSections";
+import obtainLetters from "../../utils/wordSections";
 
 const LearnPronounciate = () => {
   const [text, setText] = useState("");
