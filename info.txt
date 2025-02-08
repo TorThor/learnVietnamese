@@ -1,0 +1,2 @@
+Ending consonants have no audible release
+Combine tonal marks and typing into a single "Info" tab. This will contain more info than just that such as grammar. Add ^ there too
