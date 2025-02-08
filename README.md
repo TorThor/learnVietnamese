@@ -14,3 +14,7 @@ If you wish to use or see this for yourself:
 4. Access the app on any network by scanning the QR code given in the terminal using your phone (you can take a picture of the QR code and use an app to open QR codes from your photo library for later reference)
 
 ![Image](https://github.com/user-attachments/assets/2751910f-cc93-46a6-8a98-c301166db8b9) ![Image](https://github.com/user-attachments/assets/92ab423d-25d5-4747-a7f4-dbf45aba2a89)
+
+## Contact
+
+Tor Qureshi: torqureshi@gmail.com
