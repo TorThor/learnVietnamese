@@ -1,50 +1,16 @@
-# Welcome to your Expo app 👋
+# learnVietnamese
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a personal project to help me learn Vietnamese and React Native for the first time by having pronounciation resources at my fingertips (Android and iOS). I found there weren't any readily available resources like this, so I decided to make my own study tool.
 
-## Get started
+I might later down the road, but for now (02/08/2024), I will not be properly documenting this project nor with my git pushes.
 
-1. Install dependencies
+## How to use
 
-   ```bash
-   npm install
-   ```
+If you wish to use or see this for yourself:
 
-2. Start the app
+1. Clone the project on a computer
+2. Run `npx expo start --tunnel` to start and host the app (may need to config ngrok if prompted)
+3. Download the Expo Go app on desired device (Android or iOS)
+4. Access the app on any network by scanning the QR code given in the terminal using your phone (you can take a picture of the QR code and use an app to open QR codes from your photo library for later reference)
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+![Image](https://github.com/user-attachments/assets/2751910f-cc93-46a6-8a98-c301166db8b9) ![Image](https://github.com/user-attachments/assets/92ab423d-25d5-4747-a7f4-dbf45aba2a89)
