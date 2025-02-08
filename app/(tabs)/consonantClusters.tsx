@@ -44,7 +44,7 @@ const consonantClusters = () => {
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
-    <SafeAreaView className="bg-background h-full">
+    <View className="bg-background h-full">
       <StatusBar style="auto" />
       <ImageBackground
         className="w-full h-full justify-center items-center"
@@ -95,7 +95,7 @@ const consonantClusters = () => {
           ItemSeparatorComponent={() => <View className="h-4" />}
         />
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 };
 

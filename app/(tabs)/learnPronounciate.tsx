@@ -5,21 +5,13 @@ import {
   TouchableOpacity,
   ImageBackground,
   FlatList,
-  SafeAreaView,
 } from "react-native";
 import * as Speech from "expo-speech";
 import images from "../../constants/images";
 import TextInputButton from "@/components/textinput-button";
 import { StatusBar } from "expo-status-bar";
 import PlaySoundButton from "@/components/PlaySoundButton";
-import {
-  triphthongsRegex,
-  diphthongsRegex,
-  consonantClustersRegex,
-  vowelsRegex,
-  consonantsRegex,
-  obtainLetters,
-} from "../../utils/wordSections";
+import { obtainLetters } from "../../utils/wordSections";
 
 const LearnPronounciate = () => {
   const [text, setText] = useState("");
@@ -61,7 +53,7 @@ const LearnPronounciate = () => {
   };
 
   return (
-    <SafeAreaView className="bg-background h-full">
+    <View className="bg-background h-full">
       <StatusBar style="auto" />
       <ImageBackground
         className="w-full h-full px-4"
@@ -80,9 +72,10 @@ const LearnPronounciate = () => {
         >
           <Text className="text-white font-bold text-xl">Speak</Text>
         </TouchableOpacity>
-        <Text className="text-white font-bold text-xl">
-          --------------------------------------------------------{"\n"}
-        </Text>
+        <View>
+          <Text>{"\n"}</Text>
+          <View className="border-b-2 border-white mt-2 mb-2" />
+        </View>
         <FlatList
           data={words}
           renderItem={renderWord}
@@ -90,7 +83,7 @@ const LearnPronounciate = () => {
           className="w-full h-full"
         />
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 };
 

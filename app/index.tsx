@@ -34,7 +34,7 @@ const index = () => {
             textStyles="text-primary font-bold text-2xl rounded-xl"
           />
           <PlaySoundButton
-            title={`Clicked ${count} times`}
+            title={`\nClicked ${count} times`}
             handlePress={() => setCount(count + 1)}
           ></PlaySoundButton>
         </ImageBackground>

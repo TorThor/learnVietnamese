@@ -3,7 +3,6 @@ import {
   View,
   ImageBackground,
   FlatList,
-  SafeAreaView,
   Text,
   Linking,
   TouchableOpacity,
@@ -37,16 +36,14 @@ const alphabet = () => {
   };
 
   const handlePressSourceLink = () => {
-    Linking.openURL(
-      "https://langi.app/blog/vietnamese-alphabet-tones#vietnamese-single-consonants"
-    );
+    Linking.openURL("https://www.youtube.com/watch?v=qUOq_qLZacc");
   };
 
   const [isEnabled, setIsEnabled] = useState(true);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
-    <SafeAreaView className="bg-background h-full">
+    <View className="bg-background h-full">
       <StatusBar style="auto" />
       <ImageBackground
         className="w-full h-full justify-center items-center"
@@ -97,7 +94,7 @@ const alphabet = () => {
           ItemSeparatorComponent={() => <View className="h-4" />}
         />
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 };
 

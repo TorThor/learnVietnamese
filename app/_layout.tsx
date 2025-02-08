@@ -1,5 +1,7 @@
 // e:\Coding\ReactNative\RNapp\app\_layout.tsx
 import { SplashScreen, Stack } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import { useFonts } from "expo-font";
 import "../global.css";
 import { useEffect } from "react";
@@ -36,17 +38,28 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="signin" options={{ headerShown: false }} />
-      <Stack.Screen name="signup" options={{ headerShown: false }} />
-      <Stack.Screen
-        name="(tabs)"
-        options={{
-          headerShown: true,
-          headerTitle: "Pronounciation",
-        }}
-      />
-    </Stack>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: "#E0D0BB" }}
+      edges={["top", "left", "right"]}
+    >
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="signin" options={{ headerShown: false }} />
+        <Stack.Screen name="signup" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+            headerTitle: "Pronounciation",
+            headerStyle: {
+              backgroundColor: "#E0D0BB",
+            },
+            headerTitleStyle: {
+              color: "white",
+            },
+          }}
+        />
+      </Stack>
+    </SafeAreaView>
   );
 }
