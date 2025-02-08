@@ -2,7 +2,7 @@
 
 This is a personal project to help me learn Vietnamese and React Native for the first time by having pronounciation resources at my fingertips (Android and iOS). I found there weren't any readily available resources like this, so I decided to make my own study tool.
 
-I might later down the road, but for now (02/08/2024), I will not be properly documenting this project nor with my git pushes. Some things may work, some things may not. This repository is mainly for me to access when not at my home computer and for others to view.
+I might later down the road, but for now (02/08/2024), I will not be properly documenting this project nor with my git pushes. Some things may work at a given time, some things may not. This repository is mainly for me to access when not at my home computer and for others to view.
 
 ## How to Use
 
