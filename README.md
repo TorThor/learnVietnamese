@@ -4,7 +4,7 @@ This is a personal project to help me learn Vietnamese and React Native for the 
 
 I might later down the road, but for now (02/08/2024), I will not be properly documenting this project nor with my git pushes.
 
-## How to use
+## How to Use
 
 If you wish to use or see this for yourself:
 
