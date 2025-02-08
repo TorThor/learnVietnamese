@@ -12,7 +12,7 @@ import images from "../constants/images";
 import TextInputButton from "@/components/textinput-button"; // Use PascalCase for imported components
 import React from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../FirebaseConfig";
+import { auth } from "../dist/FirebaseConfig";
 import { router } from "expo-router";
 import PlaySoundButton from "@/components/PlaySoundButton";
 

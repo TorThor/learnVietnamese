@@ -8,7 +8,7 @@ import {
 } from "../constants/audioMap";
 
 type PlaySoundButtonProps = {
-  dataName: string;
+  dataName?: string;
   title: string;
   handlePress: () => void;
   isLoading?: boolean;

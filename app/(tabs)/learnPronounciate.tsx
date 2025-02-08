@@ -12,6 +12,14 @@ import images from "../../constants/images";
 import TextInputButton from "@/components/textinput-button";
 import { StatusBar } from "expo-status-bar";
 import PlaySoundButton from "@/components/PlaySoundButton";
+import {
+  triphthongsRegex,
+  diphthongsRegex,
+  consonantClustersRegex,
+  vowelsRegex,
+  consonantsRegex,
+  obtainLetters,
+} from "../../utils/wordSections";
 
 const LearnPronounciate = () => {
   const [text, setText] = useState("");
@@ -27,7 +35,7 @@ const LearnPronounciate = () => {
   };
 
   const renderWord = ({ item, index }: { item: string; index: number }) => {
-    const letters = item.split("");
+    const letters = obtainLetters(item);
 
     return (
       <View key={index}>
