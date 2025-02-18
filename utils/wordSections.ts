@@ -1,15 +1,45 @@
 // Define the regexs
-const triphthongsRegex =
-  /(iêu|yêu|yếu|yều|yểu|yễu|yệu|oai|oái|oài|oải|oãi|oại|oay|oáy|oày|oảy|oãy|oạy|oeo|oeó|oeò|oeỏ|oeõ|oeọ|uai|uái|uài|uải|uãi|uại|uây|uấy|uầy|uẩy|uẫy|uậy)/gi;
+const triphthongsRegex = /(iêu|yêu|oai|oay|uôi|uya|uyê|ươi|ươu)/gi;
 const diphthongsRegex: RegExp =
-  /(ai|ái|ài|ải|ãi|ại|ao|áo|ào|ảo|ão|ạo|au|áu|àu|ảu|ãu|ậu|ay|áy|ày|ảy|ãy|ậy|â|ây|ấy|ầy|ẩy|ẫy|ậy|ia|ía|ìa|ỉa|ĩa|ịa|iê|yê|iế|iề|iể|iễ|iệ|eo|éo|èo|ẻo|ẽo|ẹo|êu|ếu|ều|ểu|ễu|ệu|oa|óa|òa|ỏa|õa|ọa|oă|oắt|oằ|oẳ|oẵ|oặ|oe|óe|òe|ỏe|õe|ọe|oi|ói|òi|ỏi|õi|ọi|ôi|ối|ồi|ổi|ỗi|ội|ơi|ới|ời|ởi|ỡi|ợi|ua|úa|ùa|ủa|ũa|ụa|uô|uố|uồ|uổ|uỗ|uộ|uâ|uất|uầ|uẩ|uẫ|uậ|uê|uế|uề|uể|uễ|uệ|ui|úi|ùi|ủi|ũi|ụi|uy|úy|ùy|ủy|ũy|ụy|ưa|ứa|ừa|ửa|ữa|ựa|ươ|ướ|ườ|ưở|ưỡ|ượ|ưi|ưí|ừi|ửi|ưỡi|ựi|ưu|ứu|ừu|ửu|ữu|ựu)/gi;
+  /(ai|ao|au|ay|âu|ây|ia|iê|yê|eo|êu|oa|oă|oe|oi|ôi|ơi|ua|uô|uâ|uê|ui|uy|ưa|ươ|ưi|ưu)/gi;
 const consonantClustersRegex: RegExp = /(ch|gh|gi|kh|nh|ng|ngh|ph|qu|th|tr)/gi;
-const vowelsRegex: RegExp =
-  /[aăâàảãáạằẳẵắặầẩẫấậeêèẻẽéẹềểễếệiìỉĩíịoôơòỏõóọồổỗốộờởỡớợuưùủũúụừửữứựyỳỷỹýỵ]/gi;
+const vowelsRegex: RegExp = /[aăâeêioôơuưy]/gi;
 const consonantsRegex: RegExp = /[bcdđghklmnpqrstvx]/gi;
+const marksRegs: RegExp[] = [
+  /[àảãáạằẳẵắặầẩẫấậ]/gi,
+  /[èẻẽéẹềểễếệ]/gi,
+  /[ìỉĩíị]/gi,
+  /[òỏõóọồổỗốộờởỡớợ]/gi,
+  /[ùủũúụừửữứự]/gi,
+  /[ỳỷỹýỵ]/gi,
+];
+
+// Define constants and lets for marks replacement
+type myArrProps = {
+  char: string;
+  vowel: string;
+  pos: number;
+};
+let myArr: myArrProps[] = [];
+let tempArr;
+let count: number = 0;
+const countType: string[] = ["a", "e", "i", "o", "u", "y"];
 
 // Function to be called in learnPronounciate.tsx
 let obtainLetters = (sections: string): string[] => {
+  // Replace marks in section
+  for (let i = 0; i < marksRegs.length; i++) {
+    while ((tempArr = marksRegs[i].exec(sections)) != null) {
+      myArr[count] = {
+        char: tempArr[0],
+        vowel: countType[i],
+        pos: tempArr.index,
+      };
+      sections = sections.replace(myArr[count].char, myArr[count].vowel);
+      count++;
+    }
+  }
+
   // Define the strings to be parsed
   let current: string = sections.slice(0, 3);
   let realArr: string[] = [];
@@ -66,4 +96,4 @@ let obtainLetters = (sections: string): string[] => {
   return realArr;
 };
 
-export default obtainLetters;
+export { obtainLetters, myArr };

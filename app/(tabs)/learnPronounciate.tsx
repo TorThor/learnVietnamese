@@ -11,7 +11,7 @@ import images from "../../constants/images";
 import TextInputButton from "@/components/textinput-button";
 import { StatusBar } from "expo-status-bar";
 import PlaySoundButton from "@/components/PlaySoundButton";
-import obtainLetters from "../../utils/wordSections";
+import { obtainLetters, myArr } from "../../utils/wordSections";
 
 const LearnPronounciate = () => {
   const [text, setText] = useState("");
@@ -28,6 +28,18 @@ const LearnPronounciate = () => {
 
   const renderWord = ({ item, index }: { item: string; index: number }) => {
     const letters = obtainLetters(item);
+    console.log(letters);
+
+    let count: number = -1;
+    let arrCount: number[] = [];
+
+    for (let i = 0; i < letters.length; i++) {
+      count += letters[i].length;
+      if (count >= myArr[index].pos) {
+        arrCount.push(i);
+        break;
+      }
+    }
 
     return (
       <View key={index}>
