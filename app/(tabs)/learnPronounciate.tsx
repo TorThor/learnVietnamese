@@ -30,6 +30,7 @@ const LearnPronounciate = () => {
     const { realArr, myArr } = obtainLetters(item);
     const letters = realArr;
     const myArr2 = myArr;
+    console.log(letters);
 
     return (
       <View key={index}>
