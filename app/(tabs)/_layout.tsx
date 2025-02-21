@@ -31,15 +31,19 @@ const TabsLayout = () => {
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarPosition: "bottom",
         tabBarShowLabel: false,
         tabBarActiveTintColor: "#84CC15",
         tabBarInactiveTintColor: "gray",
+        tabBarLabelPosition: "beside-icon",
         tabBarStyle: {
           backgroundColor: "#E0D0BB",
           borderTopWidth: 1,
           borderTopColor: "#84CC15",
-          height:
-            Platform.OS === "ios" ? 60 + insets.bottom : 70 + insets.bottom,
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom + insets.bottom * 0.2,
+          paddingLeft: insets.left,
+          paddingRight: insets.right,
         },
       }}
     >

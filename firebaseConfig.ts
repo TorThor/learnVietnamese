@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { initializeAuth } from "firebase/auth";
+// import { getAnalytics } from "firebase/analytics";
+import { initializeAuth, getReactNativePersistence } from "firebase/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,10 +15,12 @@ const firebaseConfig = {
   storageBucket: "vietlearn-c1b4c.firebasestorage.app",
   messagingSenderId: "446743830755",
   appId: "1:446743830755:web:d23f409905ac95aa1e25d6",
-  measurementId: "G-HT6LLE9WB7"
+  measurementId: "G-HT6LLE9WB7",
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
-export const auth = initializeAuth(app)
+// export const analytics = getAnalytics(app);
+export const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage),
+});

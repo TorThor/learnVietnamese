@@ -38,10 +38,7 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: "#E0D0BB" }}
-      edges={["top", "left", "right"]}
-    >
+    <SafeAreaView className="bg-background h-full flex-1">
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="signin" options={{ headerShown: false }} />

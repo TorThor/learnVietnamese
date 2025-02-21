@@ -6,11 +6,17 @@ const consonantClustersRegex: RegExp = /(ch|gh|gi|kh|nh|ng|ngh|ph|qu|th|tr)/gi;
 const vowelsRegex: RegExp = /[aăâeêioôơuưy]/gi;
 const consonantsRegex: RegExp = /[bcdđghklmnpqrstvx]/gi;
 const marksRegs: RegExp[] = [
-  /[àảãáạằẳẵắặầẩẫấậ]/gi,
-  /[èẻẽéẹềểễếệ]/gi,
+  /[àảãáạ]/gi,
+  /[ằẳẵắặ]/gi,
+  /[ầẩẫấậ]/gi,
+  /[èẻẽéẹ]/gi,
+  /[ềểễếệ]/gi,
   /[ìỉĩíị]/gi,
-  /[òỏõóọồổỗốộờởỡớợ]/gi,
-  /[ùủũúụừửữứự]/gi,
+  /[òỏõóọ]/gi,
+  /[ồổỗốộ]/gi,
+  /[ờởỡớợ]/gi,
+  /[ùủũúụ]/gi,
+  /[ừửữứự]/gi,
   /[ỳỷỹýỵ]/gi,
 ];
 
@@ -20,23 +26,36 @@ type myArrProps = {
   vowel: string;
   pos: number;
 };
-let myArr: myArrProps[] = [];
 let tempArr;
 let count: number = 0;
-const countType: string[] = ["a", "e", "i", "o", "u", "y"];
+const countType: string[] = [
+  "a",
+  "ă",
+  "â",
+  "e",
+  "ê",
+  "i",
+  "o",
+  "ô",
+  "ơ",
+  "u",
+  "ư",
+  "y",
+];
 
-// Function to be called in learnPronounciate.tsx
-let obtainLetters = (sections: string): string[] => {
-  // Replace marks in section
-  for (let i = 0; i < marksRegs.length; i++) {
+let obtainLetters = (sections: string) => {
+  let myArr: myArrProps[] = [];
+
+  outerLoop: for (let i = 0; i < marksRegs.length; i++) {
     while ((tempArr = marksRegs[i].exec(sections)) != null) {
-      myArr[count] = {
+      myArr[0] = {
         char: tempArr[0],
         vowel: countType[i],
         pos: tempArr.index,
       };
-      sections = sections.replace(myArr[count].char, myArr[count].vowel);
+      sections = sections.replace(myArr[0].char, myArr[0].vowel);
       count++;
+      break outerLoop;
     }
   }
 
@@ -93,7 +112,7 @@ let obtainLetters = (sections: string): string[] => {
       }
     }
   }
-  return realArr;
+  return { myArr, realArr };
 };
 
-export { obtainLetters, myArr };
+export default obtainLetters;
