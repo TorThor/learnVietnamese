@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   FlatList,
+  Button,
 } from "react-native";
 import * as Speech from "expo-speech";
 import images from "../../constants/images";
@@ -12,6 +13,7 @@ import TextInputButton from "@/components/textinput-button";
 import { StatusBar } from "expo-status-bar";
 import PlaySoundButton from "@/components/PlaySoundButton";
 import obtainLetters from "../../utils/wordSections";
+import logout from "@/utils/logout";
 
 const LearnPronounciate = () => {
   const [text, setText] = useState("");
@@ -62,6 +64,9 @@ const LearnPronounciate = () => {
         className="w-full h-full px-4"
         source={images.stackscreen}
       >
+        <View className="flex-row justify-end">
+          <Button title="Logout" onPress={() => logout()} color="white" />
+        </View>
         <TextInputButton
           value={text}
           placeholder="Type here"

@@ -4,11 +4,13 @@ import {
   View,
   useWindowDimensions,
   ImageBackground,
+  Button,
 } from "react-native";
 import React from "react";
 import images from "../../constants/images";
 import { commonStyles } from "../../styles/styles";
 import { StatusBar } from "expo-status-bar";
+import logout from "@/utils/logout";
 
 const TonalMarks = () => {
   const { width } = useWindowDimensions();
@@ -31,9 +33,12 @@ const TonalMarks = () => {
     <View className="bg-background h-full">
       <StatusBar style="auto" />
       <ImageBackground
-        className="w-full h-full justify-center items-center"
+        className="w-full h-full justify-center"
         source={images.stackscreen}
       >
+        <View className="flex flex-row justify-end">
+          <Button title="Logout" onPress={() => logout()} color="white" />
+        </View>
         <Text>Tonal Marks</Text>
         <Image
           source={require("../../assets/images/tonal-marks.png")}

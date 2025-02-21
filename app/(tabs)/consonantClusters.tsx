@@ -5,6 +5,7 @@ import {
   FlatList,
   Text,
   Linking,
+  Button,
   TouchableOpacity,
   Switch,
 } from "react-native";
@@ -12,6 +13,7 @@ import { StatusBar } from "expo-status-bar";
 import images from "../../constants/images";
 import PlaySoundButton from "@/components/PlaySoundButton";
 import consonantClustersData from "@/constants/consonantClustersData";
+import logout from "@/utils/logout";
 
 const letterStyling: string = "text-white font-bold text-3xl";
 const boxStylingBase: string = "w-20 h-20 bg-primary";
@@ -55,16 +57,19 @@ const consonantClusters = () => {
           keyExtractor={(item) => item.label}
           ListHeaderComponent={
             <View>
-              <View className="flex-row items-center">
-                <Switch
-                  trackColor={{ false: "#767577", true: "#84CC15" }}
-                  thumbColor={isEnabled ? "#FFFFFF" : "#f4f3f4"}
-                  onValueChange={toggleSwitch}
-                  value={isEnabled}
-                />
-                <Text className=" text-white text-2xl ml-4">
-                  Toggle descriptions
-                </Text>
+              <View className="flex-row items-center justify-between">
+                <View className="flex-row items-center">
+                  <Switch
+                    trackColor={{ false: "#767577", true: "#84CC15" }}
+                    thumbColor={isEnabled ? "#FFFFFF" : "#f4f3f4"}
+                    onValueChange={toggleSwitch}
+                    value={isEnabled}
+                  />
+                  <Text className=" text-white text-2xl ml-4">
+                    Toggle descriptions
+                  </Text>
+                </View>
+                <Button onPress={() => logout()} title="Logout" color="white" />
               </View>
               <TouchableOpacity onPress={handlePressSourceLink}>
                 <Text className="text-primary text-xl underline mt-4">
