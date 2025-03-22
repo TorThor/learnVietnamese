@@ -12,10 +12,10 @@ type TabIconProps = {
 
 const TabIcon: React.FC<TabIconProps> = ({ icon, color, name, focused }) => {
   return (
-    <View className="items-center justify-center gap-2">
+    <View className="flex-1 gap-2 items-center justify-center">
       <Image source={icon} resizeMode="contain" tintColor={color} />
       <Text
-        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
+        className={`${focused ? "font-psemibold" : "font-pregular"} w-full`}
         style={{ color: color }}
       >
         {name}
@@ -31,15 +31,19 @@ const TabsLayout = () => {
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarPosition: "bottom",
         tabBarShowLabel: false,
         tabBarActiveTintColor: "#84CC15",
         tabBarInactiveTintColor: "gray",
+        tabBarLabelPosition: "beside-icon",
         tabBarStyle: {
           backgroundColor: "#E0D0BB",
           borderTopWidth: 1,
           borderTopColor: "#84CC15",
-          height:
-            Platform.OS === "ios" ? 60 + insets.bottom : 70 + insets.bottom,
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom,
+          paddingLeft: insets.left,
+          paddingRight: insets.right,
         },
       }}
     >
@@ -72,28 +76,14 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="tonalMarks"
+        name="notes"
         options={{
-          title: "Tonal Marks",
+          title: "Notes",
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
               icon={icons.tonalMarks}
               color={color}
-              name="Tonal Marks"
-              focused={focused}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="typing"
-        options={{
-          title: "typing",
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon
-              icon={icons.typing}
-              color={color}
-              name="Typing"
+              name="Notes"
               focused={focused}
             />
           ),

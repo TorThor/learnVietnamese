@@ -9,8 +9,6 @@ import PlaySoundButton from "@/components/PlaySoundButton";
 // markings, accents, etc.)
 
 const index = () => {
-  const [count, setCount] = useState(0);
-
   return (
     <SafeAreaView className="bg-background h-full">
       <StatusBar style="auto" />
@@ -33,10 +31,6 @@ const index = () => {
             containerStyles="w-10/12 mt-7 bg-white min-h-[60px]"
             textStyles="text-primary font-bold text-2xl rounded-xl"
           />
-          <PlaySoundButton
-            title={`\nClicked ${count} times`}
-            handlePress={() => setCount(count + 1)}
-          ></PlaySoundButton>
         </ImageBackground>
       </ScrollView>
     </SafeAreaView>

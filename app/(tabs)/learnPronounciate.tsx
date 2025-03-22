@@ -5,13 +5,15 @@ import {
   TouchableOpacity,
   ImageBackground,
   FlatList,
+  Button,
 } from "react-native";
 import * as Speech from "expo-speech";
 import images from "../../constants/images";
 import TextInputButton from "@/components/textinput-button";
 import { StatusBar } from "expo-status-bar";
 import PlaySoundButton from "@/components/PlaySoundButton";
-import { obtainLetters, myArr } from "../../utils/wordSections";
+import obtainLetters from "../../utils/wordSections";
+import logout from "@/utils/logout";
 
 const LearnPronounciate = () => {
   const [text, setText] = useState("");
@@ -27,19 +29,10 @@ const LearnPronounciate = () => {
   };
 
   const renderWord = ({ item, index }: { item: string; index: number }) => {
-    const letters = obtainLetters(item);
+    const { realArr, myArr } = obtainLetters(item);
+    const letters = realArr;
+    const myArr2 = myArr;
     console.log(letters);
-
-    let count: number = -1;
-    let arrCount: number[] = [];
-
-    for (let i = 0; i < letters.length; i++) {
-      count += letters[i].length;
-      if (count >= myArr[index].pos) {
-        arrCount.push(i);
-        break;
-      }
-    }
 
     return (
       <View key={index}>
@@ -56,7 +49,7 @@ const LearnPronounciate = () => {
               title={letter}
               handlePress={() => {}}
               containerStyles="w-20 h-20 bg-primary mr-2 mb-2"
-              textStyles="text-white font-bold text-3xl"
+              textStyles={`${myArr2.length > 0 ? "text-red-700" : "text-white"} font-bold text-3xl`}
             />
           ))}
         </View>
@@ -71,12 +64,15 @@ const LearnPronounciate = () => {
         className="w-full h-full px-4"
         source={images.stackscreen}
       >
+        <View className="flex-row justify-end">
+          <Button title="Logout" onPress={() => logout()} color="white" />
+        </View>
         <TextInputButton
           value={text}
           placeholder="Type here"
           handleChangeText={setText}
           keyboardType="default"
-          otherStyles="w-10/12"
+          otherStyles="w-full"
         />
         <TouchableOpacity
           className="mt-4 w-20 h-20 bg-primary rounded-xl justify-center items-center"

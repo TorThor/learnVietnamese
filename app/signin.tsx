@@ -26,7 +26,6 @@ const SignIn = () => {
         router.push("/(tabs)/alphabet");
       }
     };
-
     checkUserLoggedIn();
   }, []);
 
