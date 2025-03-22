@@ -26,7 +26,7 @@ const Signup = () => {
       if (user) router.push("/(tabs)/alphabet");
     } catch (error: any) {
       console.log(error);
-      alert("Sign in failed: " + error.message);
+      alert("Sign up failed: " + error.message);
     }
   };
 

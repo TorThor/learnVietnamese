@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { useSafeAreaInsets } from "react-native-safe-area-context"; // Import hook
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { View, Text, Image, ImageSourcePropType, Platform } from "react-native";
 import icons from "../../constants/icons";
 
